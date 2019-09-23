@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/armandorf/fend-project-3-weather-journal-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/armandorf/fend-project-3-weather-journal-app/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/armandorf/fend-project-3-weather-journal-app"
 }
