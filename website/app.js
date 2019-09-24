@@ -68,6 +68,14 @@ const getEntry = async function (id) {
   }
 };
 
+/**
+ * Creates and returns a new date instance in the form of a string
+ * dynamically with JS.
+ */
+function getCurrentDate() {
+  const d = new Date();
+  return `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+}
 
 
 // Create a new date instance dynamically with JS
