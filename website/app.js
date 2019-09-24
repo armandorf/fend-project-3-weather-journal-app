@@ -1,7 +1,11 @@
-/* Global Variables */
+// constants and personal API Key for OpenWeatherMap API
+const WEATHER_API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&';
+const API_KEY = 'ABC';
+const KEY_PARAM = `&key=&APPID=${API_KEY}`;
 
+// global variables
+let counterId = 1;
 
-// Personal API Key for OpenWeatherMap API
 
 
 // Event listener to add function to existing HTML DOM element
