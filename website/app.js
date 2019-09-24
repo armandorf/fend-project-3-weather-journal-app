@@ -52,8 +52,22 @@ const postData = async function (url = '/add', data = {}) {
   }
 };
 
+/**
+ * Gets the most recent entry from the server from given id.
+ * @param id
+ * @returns {Promise<any>}
+ */
+const getEntry = async function (id) {
+  try {
+    // call weather API
+    const res = await fetch(`/entry/${id}`);
+    const json = await res.json();
+    return json;
+  } catch (error) {
+    console.log(`Error occurred while getting entry from server: ${error}`);
+  }
+};
 
-/* Function to GET Project Data */
 
 
 // Create a new date instance dynamically with JS
