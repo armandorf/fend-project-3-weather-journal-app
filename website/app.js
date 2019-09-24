@@ -26,16 +26,31 @@ const getWeatherData = async function (zipcode = 94040) {
   }
 };
 
-// Event listener to add function to existing HTML DOM element
+/**
+ * Posts and entry of data to server.
+ * @param url
+ * @param data
+ * @returns {Promise<any>}
+ */
+const postData = async function (url = '/add', data = {}) {
+  // console.log(data);
+  const response = await fetch(url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
 
-
-/* Function called by event listener */
-
-
-/* Function to GET Web API Data */
-
-
-/* Function to POST data */
+  try {
+    const newData = await response.json();
+    // console.log(newData);
+    return newData;
+  } catch (error) {
+    console.log(`Error occurred while posting to server: ${error}`);
+  }
+};
 
 
 /* Function to GET Project Data */
