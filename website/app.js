@@ -77,7 +77,34 @@ function getCurrentDate() {
   return `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 }
 
+/**
+ * Event listener handler for the "generate" button which generates a new
+ * entry.
+ */
+function handleGenerate() {
+  const zipcode = document.getElementById('zip').value;
+  const feelings = document.getElementById('feelings').value;
+  if (zipcode) {
+    // call weather API and chain events
+    getWeatherData(zipcode)
+      .then((value) => {
+        const req = {
+          date: getCurrentDate(),
+          temp: value.main.temp,
+          content: feelings,
+          id: counterId,
+        };
+        counterId += 1;
+        return postData('/add', req);
+      })
+      .then((json) => getEntry(json.id))
+      .then((json) => {
+        document.getElementById('date').innerHTML = json.date;
+        document.getElementById('temp').innerHTML = `${json.temp} &#8457;`;
+        document.getElementById('content').innerHTML = json.content;
+      });
+  }
+}
 
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+// event listener to add function to existing HTML DOM element
+document.getElementById('generate').addEventListener('click', handleGenerate);
